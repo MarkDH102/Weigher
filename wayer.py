@@ -220,18 +220,18 @@ def sendEmail(strMessage):
         server.ehlo()
         server.starttls()
         server.ehlo()
-        server.login("alangunall@outlook.com", "Giraffe64$")
+        server.login("sendfromemail", "pwd")
         msg = MIMEMultipart()
         msg['Subject'] = "WEIGHT : " + strMessage
-        msg['From'] = "alangunall@outlook.com"
+        msg['From'] = "sendfromemail"
         msg.preamble = "WEIGHT : " + strMessage
 
         if _user == CONST.USER_TRACEY :
-            msg['To'] = "pinkyandbunny@hotmail.co.uk"
-            server.sendmail("alangunall@outlook.com", "markdh102@hotmail.co.uk", msg.as_string())
+            msg['To'] = "sendtoemail"
+            server.sendmail("sendfromemail", "sendtoemail", msg.as_string())
         else :
-            msg['To'] = "markdh102@hotmail.co.uk"
-            server.sendmail("alangunall@outlook.com", "markdh102@hotmail.co.uk", msg.as_string())
+            msg['To'] = "sendtoemail"
+            server.sendmail("sendfromemail", "sendtoemail", msg.as_string())
         server.quit()
 
     except :
